@@ -1,0 +1,170 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header,
+footer {
+  padding: 75px 0;
+  color: black;
+  background: brown;
+  text-align: center;
+}
+
+.container-posts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.container-posts .box-tag {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  margin: 10px;
+  justify-content: space-between;
+  background-color: purple;
+  border: 2px solid black;
+  border-radius: 5px;
+  width: 250px;
+  height: 250px;
+  line-height: 2;
+}
+
+.container-posts .box-tag p {
+  color: white;
+}
+
+.container-posts .box-tag h2 {
+  text-align: center;
+}
+
+.container-posts .box-posts h2 {
+  text-align: center;
+}
+
+.container-posts .box-posts .box-post {
+  line-height: 2;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.container-admin {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.categories,
+.tags {
+  width: 150px;
+  border-top: 2px solid black;
+  text-align: center;
+  background: brown;
+}
+
+.categories a,
+.tags a {
+  line-height: 2;
+  color: white;
+  text-decoration: none;
+  display: block;
+}
+
+.box-post {
+  display: flex;
+  line-height: 2;
+  padding: 10px 15px;
+  width: 300px;
+  flex-direction: column;
+  margin: 15px;
+  align-items: center;
+  justify-content: space-between;
+  background-color: purple;
+  border: 2px solid black;
+  border-radius: 5px;
+  height: 600px;
+}
+
+.box-post p {
+  color: white;
+}
+
+.box-post p.content {
+  padding: 20px 0;
+}
+
+.box-post a {
+  text-decoration: none;
+  color: black;
+  padding-top: 20px;
+  font-size: 20px;
+}
+
+.box-post a:hover {
+  color: white;
+  text-decoration: underline;
+  font-size: 25px;
+}
+
+.link,
+.newpost {
+  width: 100%;
+  text-align: center;
+  margin: 30px 0;
+}
+
+.link a,
+.newpost a {
+  text-decoration: none;
+  padding: 15px;
+  background-color: red;
+  color: white;
+  border: solid 1px white;
+  border-radius: 10px;
+}
+
+.form-newPost {
+  line-height: 3;
+  text-align: right;
+}
+
+.form-newPost .form-element {
+  padding: 20px 0;
+}
+
+.form-newPost .form-element input {
+  padding: 5px;
+}
+
+.form-newPost .form-element input.content {
+  padding: 15px 0;
+}
+
+.tags h2 {
+  text-align: center;
+}
+
+.container-tags h2 {
+  text-align: center;
+}
+
+.container-tags .box-tag {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  margin: 10px;
+  background-color: purple;
+  border: 2px solid black;
+  border-radius: 5px;
+  width: 200px;
+}
+
+.container-tags .box-tag p {
+  color: white;
+}
+
