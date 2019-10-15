@@ -11,6 +11,10 @@
     <h2>POST</h2>
     <p>{{$post -> title}}</p>
     <p class="content">{{$post -> content}}</p>
+    @if ($post -> img)
+      <img src="img/{{$post -> img}}" alt="img.not-found">
+
+    @endif
     <p>{{$post -> author}}</p>
     <a href="{{route('blg.edit',$post -> id)}}">Edit This</a>
   </div>

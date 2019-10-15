@@ -18,6 +18,9 @@
       <div class="box-post">
         <p>{{$post -> title}}</p>
         <p class="content">{{$post -> content}}</p>
+        @if ($post -> img)
+          <img src="img/{{$post -> img}}" alt="img.not-found">
+        @endif
         <p>{{$post -> author}}</p>
       </div>
     @endforeach

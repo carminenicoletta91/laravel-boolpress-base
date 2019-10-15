@@ -90,6 +90,10 @@ footer {
   height: 600px;
 }
 
+.box-post img {
+  width: 80%;
+}
+
 .box-post p {
   color: white;
 }
