@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\Post;
 use App\Category;
 use App\Tag;
+use App\Http\Requests\BlogsRequest;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\mailtoadmin;
 class ControllerBlog extends Controller
 {
     /**
@@ -38,17 +41,13 @@ class ControllerBlog extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(BlogsRequest $request)
     {
-      $validatedData = $request ->validate([
-      "title" => "required",
-      "content" =>"required",
-      "author" =>"required",
-      "category_id" =>"required"
+      $validatedData = $request ->validated();
 
-    ]);
-
+      $action = 'creato';
       $post = Post::create($validatedData);
+      Mail::to('emailadmin@gmail.com')->send(new mailtoadmin($post,$action));
 
     return redirect('/');
     }
@@ -94,15 +93,13 @@ class ControllerBlog extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(BlogsRequest $request, $id)
     {
-        $validatedData = $request -> validate([
-          "title" => "required",
-          "content" => "required",
-          "author" => "required",
-          "category_id" => "required"
-        ]);
-        Post::whereId($id) -> update($validatedData);
+        $action ='modificato';
+        $validatedData = $request -> validated();
+        $post = Post::findorFail($id);
+        $post -> update($validatedData);
+        Mail::to('emailadmin@gmail.com')->send(new mailtoadmin($post,$action));
         return redirect ('/');
     }
 
