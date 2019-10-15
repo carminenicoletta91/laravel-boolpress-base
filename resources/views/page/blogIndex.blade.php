@@ -30,6 +30,9 @@
       <p>{{$post -> title}}</p>
       <p class="content">{{$post -> content}}</p>
       <p>{{$post -> author}}</p>
+      @if ($post -> img)
+        <img src="img/{{$post -> img}}" alt="">
+      @endif
       <a href="{{route('blg.showPost',$post -> id)}}">Show This</a>
       <a href="{{route('blg.edit',$post -> id)}}">Edit This</a>
     </div>

@@ -8,7 +8,10 @@
 @endsection
 
 @section('content')
-  <form class="form-newPost"  method="post" action="{{route('blg.update',$post -> id)}}">
+  <form class="form-newPost"  method="post"
+        action="{{route('blg.update',$post -> id)}}"
+        accept-charset="UTF-8"
+        enctype="multipart/form-data">
     @csrf
     @method('POST')
     <div class="form-element">
@@ -30,6 +33,9 @@
           <option name="category_id" value="{{$category -> id}}">{{$category -> name}}</option>
         @endforeach
       </select>
+    </div>
+    <div class="form-element">
+      <input type="file" name="img" accept="image/*">
     </div>
     <button id="save-button"type="submit">Update</button>
   </form>

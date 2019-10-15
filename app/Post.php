@@ -10,7 +10,8 @@ class Post extends Model
     "title",
     "content",
     "author",
-    "category_id"
+    "category_id",
+    "img"
   ];
     public function category(){
       return $this -> belongsTo(Category::class);

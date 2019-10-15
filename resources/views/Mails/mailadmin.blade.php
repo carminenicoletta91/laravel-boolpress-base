@@ -26,6 +26,11 @@
       <p>Content: {{$post -> content}}</p>
       <p>Author:{{$post -> author}}</p>
       <p>Category_id:{{$post -> category_id}}</p>
+      @if ($post -> img)
+        <p>Ha caricato una img {{$post -> img}}</p>
+      @else
+        <p>Non ha caricato nessuna img</p>
+      @endif
     </div>
 
   </body>

@@ -43,9 +43,19 @@ class ControllerBlog extends Controller
      */
     public function store(BlogsRequest $request)
     {
-      $validatedData = $request ->validated();
+
+      $date=date("H-i-s-d-m-Y".rand(0,255));
 
       $action = 'creato';
+      $validatedData = $request ->validated();
+      $file =$request ->file('img');
+      if ($file) {
+        $targetPath = "img";
+        $targetFile = "post-".$date.".". $file->getClientOriginalExtension();
+        $file -> move($targetPath,$targetFile);
+        $validatedData['img'] = $targetFile;
+      }
+
       $post = Post::create($validatedData);
       Mail::to('emailadmin@gmail.com')->send(new mailtoadmin($post,$action));
 
@@ -98,6 +108,13 @@ class ControllerBlog extends Controller
         $action ='modificato';
         $validatedData = $request -> validated();
         $post = Post::findorFail($id);
+        $file = $request -> file('img');
+        if($file){
+          $targetPath = "img";
+          $targetFile = "post-".$id.".".$file -> getClientOriginalExtension();
+          $file -> move($targetPath,$targetFile);
+          $validatedData['img'] =$targetFile;
+        }
         $post -> update($validatedData);
         Mail::to('emailadmin@gmail.com')->send(new mailtoadmin($post,$action));
         return redirect ('/');
